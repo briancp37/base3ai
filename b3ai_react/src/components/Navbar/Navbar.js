@@ -1,10 +1,32 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../services/providers/AuthContext';
 import './Navbar.css'; // Make sure to create a Navbar.css file for styling
 
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSignInDropdownOpen, setSignInIsDropdownOpen] = useState(false);
 
+  const { user, handleSignOut, signInDivRef, loading } = useContext(AuthContext);
+
+
+  const toggleSignInDropdown = () => {
+    setSignInIsDropdownOpen(!isSignInDropdownOpen);
+  };
+  // console.log('user',user);
+  // console.log('signInDivRef',signInDivRef);
+
+  useEffect(() => {
+    // if (Object.keys(user).length === 0 && signInDivRef.current) {
+    if (user === null && signInDivRef.current) {
+      signInDivRef.current.hidden = false;
+    } else if (signInDivRef.current) {
+      signInDivRef.current.hidden = true;
+    }
+  }, [user, signInDivRef]);
+
+  // console.log('loading',loading);
+  
   return (
     <header className="navbar">
       <div className="navbar-container">
@@ -24,21 +46,43 @@ const Navbar = () => {
             <a href="/research" className="navbar-link">Research ▼</a>
             {isDropdownOpen && (
               <div className="dropdown-content">
-                <a href="/overview">Overview</a>
-                <a href="/gpt4">GPT-4</a>
-                <a href="/dalle3">DALL·E 3</a>
-                <a href="/sora">Sora</a>
+                <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5768785">SSRN</a>
+                <a href="https://github.com/briancp37">GitHub</a>
               </div>
             )}
           </div>
-
-          {/* ... */}
         </div>
-
-        {/* Right-aligned items */}
+        {/* <div><p>user: {user}</p></div> */}
         <div className="navbar-actions">
-          <a href="/about" className="navbar-action">About</a>
-          <a href="/login" className="navbar-action">Log in</a>
+          {/* {!user || Object.keys(user).length === 0 ? ( */}
+          { 
+            loading ? (
+              <p>Loading...</p>
+            ) : 
+            // Object.keys(user).length === 0 ? (
+              // <div id="signInDiv"></div>
+              user === null ? (
+              <div>
+                <div ref={signInDivRef} id="signInDiv"></div>
+                {/* <div><p>3</p></div> */}
+              </div>
+            ) : (
+              <div className="user-profile">
+                <img
+                  src={user.picture}
+                  alt={user.name}
+                  className="user-picture"
+                  onClick={toggleSignInDropdown}
+                />
+                {isSignInDropdownOpen && (
+                  <div className="dropdown-menu">
+                    <p>{user.name}</p>
+                    <button onClick={handleSignOut} className="sign-out-button">Sign Out</button>
+                  </div>
+                )}
+              </div>
+            )
+          }
         </div>
       </div>
     </header>

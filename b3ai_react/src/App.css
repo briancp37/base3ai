@@ -1,7 +1,3 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,9 +33,6 @@
   }
 }
 
-/* src/App.css */
-
-/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -50,15 +43,9 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-/* Navbar styles */
-nav {
-  /* Add your styles for navigation bar */
-}
-
-/* Hero section styles */
 .hero {
   position: relative;
-  height: 90vh; /* Adjust based on your design */
+  height: 90vh; 
 }
 
 #background-video {
@@ -84,8 +71,3 @@ nav {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-
-.hero-content button {
-  /* Add styles for your button */
-}
-

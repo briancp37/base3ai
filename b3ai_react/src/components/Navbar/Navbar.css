@@ -1,13 +1,16 @@
 /* src/components/Navbar.css */
 
 .navbar {
-    background-color: #000; /* Assuming a black background */
-    color: #fff;
+    /* background-color: #000;  */
+    /* color: #fff; */
+    /* color: #6A6A6A; */
+    /* color: black; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px; /* Adjust as needed */
     height: 60px; /* Adjust as needed */
+    border-bottom: 1px solid #b5b5b5;
   }
   
   .navbar-container {
@@ -20,8 +23,8 @@
   }
   
   .navbar-brand {
-    font-size: 1.5rem; /* Adjust as needed */
-    color: #fff;
+    font-size: 1.8rem; /* Adjust as needed */
+    color: #e01d2a;
     text-decoration: none;
   }
   
@@ -38,7 +41,8 @@
     align-items: center;
     height: 60px; /* Adjust as needed */
     padding: 0 15px; /* Adjust as needed */
-    color: #fff;
+    /* color: #fff; */
+    color: black;
     text-decoration: none;
     font-weight: 500; /* Adjust as needed */
     font-size: 1rem; /* Adjust as needed */
@@ -85,7 +89,7 @@
     text-decoration: none;
   }
   
-  .navbar-action-special {
+  /* .navbar-action-special {
     color: #0B63CE;
     border: 1px solid #0B63CE;
     border-radius: 4px;
@@ -95,5 +99,56 @@
   .navbar-action-special:hover {
     background-color: #0B63CE;
     color: #fff;
+  } */
+
+  .user-profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
   
+  .user-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #c4c4c4;
+    color: black;
+    border-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) */
+  }
+  
+  .dropdown-menu p {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 16px;
+  }
+  
+  .sign-out-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .sign-out-button:hover {
+    background-color: #d32f2f;
+  }

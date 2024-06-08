@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Navbar from '../components/Navbar'; 
+import Navbar from '../components/Navbar/Navbar'; 
 
 import './ChatGPTPage.css';
 
@@ -36,8 +36,8 @@ function ChatGPTPage() {
             }
         }
         try {
-            // const response = await fetch('https://api.base3ai.net/completions', options)
-            const response = await fetch('http://api.base3ai.net/completions', options)
+            const response = await fetch('https://api.base3ai.net/completions', options)
+            // const response = await fetch('http://api.base3ai.net/completions', options)
             // const response = await fetch('https://13.59.114.78:8000/completions', options)
             // const response = await fetch('http://localhost:8000/completions', options)
             const data = await response.json()
@@ -87,9 +87,9 @@ function ChatGPTPage() {
     return (
         <div>
             <Navbar />
-            <div className="chat-container">
-                <section className='side-bar'>
-                    <button onClick={createNewChat}>+ New chat</button>
+            <div className="chatgpt-container">
+                <section className='chatgpt-side-bar'>
+                    <button className="chatgpt-button" onClick={createNewChat}>+ New chat</button>
                     <ul className="history">
                         {uniqueTitles.map((uniqueTitle, index) => <li key={index} onClick={() => handleClick(uniqueTitle)}>{uniqueTitle}</li>)}
                     </ul>
@@ -107,7 +107,7 @@ function ChatGPTPage() {
                     </ul>
                     <div className="bottom-section">
                         <div className="input-container">
-                            <input value={value} onChange={(e) => setValue(e.target.value)}/>
+                            <input className="chat-user-input" value={value} onChange={(e) => setValue(e.target.value)}/>
                             <div id="submit" onClick={getMessages}>➢ </div>
                         </div>
                         <p className="info">

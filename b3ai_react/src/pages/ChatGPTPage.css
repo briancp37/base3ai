@@ -2,46 +2,38 @@
 
 
 * {
-    color:#fff;
+    /* color:#fff; */
     font-family: 'Open Sans', sans-serif;
-
 }
 
 body {
     margin: 0;
     padding: 0;
 }
-.chat-container {
+
+.chatgpt-container {
+    color:#fff;
+    font-family: 'Open Sans', sans-serif;
     height: calc(100vh - 60px);
     background-color: #343541;
     display: flex;
     overflow: auto;
-    /* 
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #1a1a1a; */
 }
-.side-bar {
+
+.chatgpt-side-bar {
     background-color: #202123;
     max-height: 100%;
     overflow: auto;
-    /* height: 100vh; */
     width: 244px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-button {
+.chatgpt-button {
     border: solid 0.5px rgba(255, 255, 255, 0.5);
     background-color: transparent;
     border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-}
-nav {
-    border-top: solid 0.5px rgba(255, 255, 255, 0.5);
     padding: 10px;
     margin: 10px;
 }
@@ -59,7 +51,6 @@ nav {
 }
 
 .main-briangpt {
-    /* height: 100vh; */
     max-height: 100%;
     overflow: auto;
     width: 100%;
@@ -89,7 +80,7 @@ nav {
     max-width: 650px;
 }
 
-input {
+.chat-user-input {
     width: 100%;
     border: none;
     background-color: rgba(255, 255, 255, 0.05);
@@ -102,7 +93,7 @@ input {
         rgba(0,0,0,0.05) 0 -3px 5px;
 }
 
-input:focus {
+.chat-user-input:focus {
     outline: none;
 }
 
@@ -117,6 +108,7 @@ input:focus {
     overflow: scroll;
     width: 100%;
     padding: 0;
+    text-align: left;
 }
 
 .feed li {
@@ -129,7 +121,13 @@ input:focus {
 
 .feed p {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
+    font-size: 12px;
+    text-align: left;
+}
+
+.feed per {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
     text-align: left;
 }
 

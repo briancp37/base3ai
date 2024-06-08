@@ -1,0 +1,18 @@
+/* Add these styles in your CSS file */
+.popover-content {
+    padding: 16px;
+  }
+  
+  .date-range-picker {
+    display: flex;
+    align-items: center;
+  }
+  
+  .date-range-picker .MuiTextField-root {
+    margin-right: 8px;
+  }
+
+
+.dropdown-main {
+    padding-right: 2px !important;
+}
